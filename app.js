@@ -1,32 +1,22 @@
-//generate random numbers
-let firstNumber = parseInt(Math.random()*10);
-let secondNumber = parseInt(Math.random()*10);
-
-//get the total
-let total = firstNumber + secondNumber;
-
-//display numbers on the canvas
-let primary = document.getElementById('primary-number');
-    primary.innerHTML = `<p>${firstNumber}</p>`;
-
-let secondary = document.getElementById('secondary-number');
-    secondary.innerHTML = `<p>${secondNumber}</p>`
+// Seleccionar los nodos del dom que voy a valorar.
+let numOne = $("#primary-number").text();
+let numTwo = $("#secondary-number").text();
+let sum = parseInt(numOne) + parseInt(numTwo);
 
 
-//get guess from user
-let button = document.getElementById('btn')
+//generar un evento click en el boton de check.
+$("#btn").click(function(){
+    
 
-button.addEventListener('click', function(){
+    //comprobar si la suma de los dos numeros es correcta mostrar en alerta un mensaje que diga correct. Si es incorrecto debe decir "incorrecto y dar la respuesta correcta"
+    
+    if ($("#guess").val() == sum){
+        alert("correct")
 
-let guess = document.getElementById('guess').value;
-    guess = Number(guess);
-//check answer
-if (guess === total){
-    alert('Correct');
-    window.location.reload()
-} else {
-    alert('Sorry. Incorrect. The correct answer was ' + total + '.')
-    window.location.reload()
+    } 
+    else {
+        alert("Incorrecto. La respuesta es " + sum)
+    }
+    
 
-}
-    });
+});
